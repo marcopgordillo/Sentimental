@@ -8,18 +8,18 @@ import matplotlib.pyplot as plt
 class Sentimental:
 
     def __init__(self, search_term, no_of_search_terms, lang):
-        self.lang = lang
-        self.searchTerm = search_term
-        self.noOfSearchTerms = no_of_search_terms
-        self.api = self.get_auth()
-        self.positive = 0
-        self.negative = 0
-        self.neutral = 0
-        self.polarity = 0
-        self.tweets = self.get_tweets()
+        self.__lang = lang
+        self.__searchTerm = search_term
+        self.__noOfSearchTerms = no_of_search_terms
+        self.__api = self.get_auth()
+        self.__positive = 0
+        self.__negative = 0
+        self.__neutral = 0
+        self.__polarity = 0
+        self.__tweets = self.get_tweets()
 
     def percentage(self, part):
-        return 100 * float(part) / float(self.noOfSearchTerms)
+        return 100 * float(part) / float(self.__noOfSearchTerms)
 
     @staticmethod
     def get_auth():
@@ -28,19 +28,19 @@ class Sentimental:
         return tweepy.API(auth)
 
     def get_tweets(self):
-        return tweepy.Cursor(self.api.search, q=self.searchTerm).items(self.noOfSearchTerms)
+        return tweepy.Cursor(self.__api.search, q=self.__searchTerm).items(self.__noOfSearchTerms)
 
     def analyze_polarity(self):
 
-        for tweet in self.tweets:
-            # print(tweet.text)
-            positive = 0
-            neutral = 0
-            negative = 0
-            polarity = 0
+        positive = 0
+        neutral = 0
+        negative = 0
+        polarity = 0
 
+        for tweet in self.__tweets:
+            # print(tweet.text)
             try:
-                analysis = TextBlob(tweet.text).translate(self.lang)
+                analysis = TextBlob(tweet.text).translate(self.__lang)
             except NotTranslated as error:
                 print(error)
                 pass
@@ -60,22 +60,25 @@ class Sentimental:
             i = self.percentage(i)
             i = format(i, '.2f')
 
-        self.positive = positive
-        self.negative = negative
-        self.neutral = neutral
-        self.polarity = polarity
+        self.__positive = positive
+        self.__negative = negative
+        self.__neutral = neutral
+        self.__polarity = polarity
 
     def graph_pie(self):
-        labels = ['Positive [' + str(self.positive) + '%]', 'Neutral [' + str(self.neutral) + '%]',
-                  'Negative [' + str(self.negative) + '%]']
-        sizes = [self.positive, self.neutral, self.negative]
+        labels = ['Positive [' + str(self.__positive) + '%]', 'Neutral [' + str(self.__neutral) + '%]',
+                  'Negative [' + str(self.__negative) + '%]']
+        sizes = [self.__positive, self.__neutral, self.__negative]
 
         colors = ['yellowgreen', 'gold', 'red']
         patches, texts = plt.pie(sizes, colors=colors, startangle=90)
         plt.legend(patches, labels, loc="best")
-        plt.title("How people are reacting on " + self.searchTerm + " by analyzing " + str(self.noOfSearchTerms) +
+        plt.title("How people are reacting on " + self.__searchTerm + " by analyzing " + str(self.__noOfSearchTerms) +
                   " Tweets.")
 
         plt.axis('equal')
         plt.tight_layout()
         plt.show()
+
+    def get_polarity(self):
+        return self.__polarity
