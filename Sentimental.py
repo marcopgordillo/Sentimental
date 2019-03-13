@@ -46,7 +46,10 @@ class Sentimental:
         for tweet in self.__tweets:
             # print(tweet.text)
             try:
-                analysis = TextBlob(tweet.text).translate(self.__lang)
+                if self.__lang == 'en':
+                    analysis = TextBlob(tweet.text)
+                else:
+                    analysis = TextBlob(tweet.text).translate(self.__lang)
             except NotTranslated as error:
                 print(error)
                 pass
