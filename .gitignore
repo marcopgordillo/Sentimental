@@ -1,0 +1,7 @@
+/venv
+/bin
+/include
+/lib
+/share
+/.idea
+__pycache__/
