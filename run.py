@@ -1,7 +1,7 @@
 from Sentimental import Sentimental
 
 
-lang = "es"
+lang = "en"
 
 
 if __name__ == '__main__':
