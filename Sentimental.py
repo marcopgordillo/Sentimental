@@ -18,14 +18,20 @@ class Sentimental:
         self.__polarity = 0
         self.__tweets = self.get_tweets()
 
-    def percentage(self, part):
-        return 100 * float(part) / float(self.__noOfSearchTerms)
+    @staticmethod
+    def get_inputs():
+        search_term = input("Enter keyword/hashtag to search about: ")
+        no_of_search_terms = int(input("How many tweets to analyze: "))
+        return search_term, no_of_search_terms
 
     @staticmethod
     def get_auth():
         auth = tweepy.OAuthHandler(consumerKey, consumerSecret)
         auth.set_access_token(accessToken, accessTokenSecret)
         return tweepy.API(auth)
+
+    def percentage(self, part):
+        return 100 * float(part) / float(self.__noOfSearchTerms)
 
     def get_tweets(self):
         return tweepy.Cursor(self.__api.search, q=self.__searchTerm).items(self.__noOfSearchTerms)
