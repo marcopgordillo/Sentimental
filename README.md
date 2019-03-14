@@ -1,6 +1,6 @@
 # Sentimental Analysis
 
-To run this program you can proced:
+To run this program you can proced :
 ```shell
 #git clone https://github.com/marcopgordillo/Sentimental.git
 #cd Sentimental
