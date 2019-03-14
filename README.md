@@ -1,6 +1,6 @@
 # Sentimental Analysis
 
-To run this program you can proced :
+To run this program you can proced here:
 
 ```
 #git clone https://github.com/marcopgordillo/Sentimental.git
