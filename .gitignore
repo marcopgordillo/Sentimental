@@ -6,6 +6,6 @@
 /.idea
 __pycache__/
 secret.py
-secret.pyc
+*.pyc
 .gitsecret/keys/random_seed
 !*.secret
