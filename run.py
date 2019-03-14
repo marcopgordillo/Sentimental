@@ -1,7 +1,8 @@
+#!/usr/bin/p
 from Sentimental import Sentimental
 
 
-lang = "en"
+lang = "es"
 
 
 if __name__ == '__main__':
@@ -12,7 +13,7 @@ if __name__ == '__main__':
 
     sentimental = Sentimental(searchTerm, noOfSearchTerms, lang)
     sentimental.analyze_polarity()
-    sentimental.graph_pie()
+    
     polarity = sentimental.get_polarity()
 
     if polarity == 0:
@@ -21,3 +22,5 @@ if __name__ == '__main__':
         print("Negative")
     elif polarity > 0.00:
         print("Positive")
+
+    sentimental.graph_pie()

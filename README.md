@@ -2,8 +2,9 @@
 
 To run this program you need install
 ```shell
-#virtualenv env --python=python3
-#cd env
+#git clone https://github.com/marcopgordillo/Sentimental.git
+#cd Sentimental
+#virtualenv . --python=python3
 #source bin/activate
 
 #python3 -m pip install textblob tweepy matplotlib
