@@ -1,4 +1,4 @@
-#!/usr/bin/p
+#!/home/mgordillo/IdeaProjects/Sentimental/bin/python3.6
 from Sentimental import Sentimental
 
 
