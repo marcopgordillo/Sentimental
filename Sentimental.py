@@ -9,8 +9,8 @@ class Sentimental:
 
     def __init__(self, search_term, no_of_search_terms, lang):
         self.__lang = lang
-        self.__searchTerm = search_term
-        self.__noOfSearchTerms = no_of_search_terms
+        self.__search_term = search_term
+        self.__no_of_search_terms = no_of_search_terms
         self.__api = self.get_auth()
         self.__positive = 0
         self.__negative = 0
@@ -26,15 +26,15 @@ class Sentimental:
 
     @staticmethod
     def get_auth():
-        auth = tweepy.OAuthHandler(consumerKey, consumerSecret)
-        auth.set_access_token(accessToken, accessTokenSecret)
+        auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+        auth.set_access_token(access_token, access_token_secret)
         return tweepy.API(auth)
 
     def percentage(self, part):
-        return 100 * float(part) / float(self.__noOfSearchTerms)
+        return 100 * float(part) / float(self.__no_of_search_terms)
 
     def get_tweets(self):
-        return tweepy.Cursor(self.__api.search, q=self.__searchTerm).items(self.__noOfSearchTerms)
+        return tweepy.Cursor(self.__api.search, q=self.__search_term).items(self.__no_of_search_terms)
 
     def analyze_polarity(self):
 
@@ -82,7 +82,7 @@ class Sentimental:
         colors = ['yellowgreen', 'gold', 'red']
         patches, texts = plt.pie(sizes, colors=colors, startangle=90)
         plt.legend(patches, labels, loc="best")
-        plt.title("How people are reacting on " + self.__searchTerm + " by analyzing " + str(self.__noOfSearchTerms) +
+        plt.title("How people are reacting on " + self.__search_term + " by analyzing " + str(self.__no_of_search_terms) +
                   " Tweets.")
 
         plt.axis('equal')

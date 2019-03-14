@@ -7,11 +7,11 @@ lang = "es"
 
 if __name__ == '__main__':
 
-    searchTerm, noOfSearchTerms = Sentimental.get_inputs()
+    search_term, no_of_search_terms = Sentimental.get_inputs()
 
-    print("How people are reacting on " + searchTerm + " by analyzing " + str(noOfSearchTerms) + " Tweets.")
+    print("How people are reacting on " + search_term + " by analyzing " + str(no_of_search_terms) + " Tweets.")
 
-    sentimental = Sentimental(searchTerm, noOfSearchTerms, lang)
+    sentimental = Sentimental(search_term, no_of_search_terms, lang)
     sentimental.analyze_polarity()
     
     polarity = sentimental.get_polarity()
