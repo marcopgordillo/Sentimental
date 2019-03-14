@@ -1,7 +1,8 @@
 # Sentimental Analysis
 
 To run this program you can proced :
-```shell
+
+```
 #git clone https://github.com/marcopgordillo/Sentimental.git
 #cd Sentimental
 #virtualenv . --python=python3
@@ -10,4 +11,4 @@ To run this program you can proced :
 #python3 -m pip install textblob tweepy matplotlib
 
 #python3 run.py
-`
+```
