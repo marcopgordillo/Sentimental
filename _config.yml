@@ -1,1 +1,12 @@
-theme: jekyll-theme-minimal
+title: Sentimental documentation
+author: Marco Gordillo
+email: marcopgordillo@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  This is a description about my blog. My blog is about IT
+  and the impact in society. About how IT help people.
+# social links
+twitter_username: marcopgordillo
+github_username:  marcopgordillo
+
+show_excerpts: true # set to false to remove excerpts on the homepage
+theme: minima
